@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0714">
+<meta name="description" content="PRISMA — tes kepribadian 16 arketipe. Petakan energimu, lensamu, keputusanmu, dan ritmemu ke dalam spektrum warna yang unik. Privat, cepat, tanpa akun.">
+<title>PRISMA — Peta Kepribadianmu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 7 42 39H6Z' fill='%238b5cf6'/%3E%3Cpath d='M31 24l15-7' stroke='%23ff3d8b' stroke-width='3'/%3E%3Cpath d='M32 28h14' stroke='%23ffb020' stroke-width='3'/%3E%3Cpath d='M31 32l15 7' stroke='%232dd4bf' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════ LATAR ══════════ -->
+<div class="bg-aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="bg-grain" aria-hidden="true"></div>
+
+<!-- ══════════ NAVIGASI ══════════ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#beranda" aria-label="PRISMA — kembali ke atas">
+    <svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true">
+      <defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs>
+      <path d="M24 7 42 39H6Z" fill="url(#lgA)" opacity=".92"/>
+      <path d="M2 26h13" stroke="#f2edff" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M31 24l15-7" stroke="#ff3d8b" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M32 28h14" stroke="#ffb020" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M31 32l15 7" stroke="#2dd4bf" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+    <span>PRISMA</span>
+  </a>
+  <nav class="links" aria-label="Navigasi utama">
+    <a class="nav-link active" data-target="beranda" href="#beranda">Beranda</a>
+    <a class="nav-link" data-target="tes" href="#tes">Tes</a>
+    <a class="nav-link" data-target="arketipe" href="#arketipe">Arketipe</a>
+    <a class="nav-link" data-target="riwayat" href="#riwayat">Riwayat</a>
+  </nav>
+  <div class="nav-actions">
+    <button type="button" id="btn-sound" class="icon-btn sound-btn" aria-pressed="true" title="Matikan suara">
+      <span class="ic-on"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor" stroke="none"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg></span>
+      <span class="ic-off"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor" stroke="none"/><path d="M17 9l5 5M22 9l-5 5"/></svg></span>
+      <span class="snd-label">Suara</span>
+    </button>
+    <a class="btn btn-primary btn-sm nav-cta" href="#tes">Mulai Tes</a>
+    <button type="button" id="btn-menu" class="icon-btn menu-btn" aria-expanded="false" aria-label="Buka menu">
+      <span class="ic-menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="ic-x"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <a class="nav-link" data-target="beranda" href="#beranda">Beranda</a>
+  <a class="nav-link" data-target="tes" href="#tes">Tes</a>
+  <a class="nav-link" data-target="arketipe" href="#arketipe">Arketipe</a>
+  <a class="nav-link" data-target="riwayat" href="#riwayat">Riwayat</a>
+  <a class="btn btn-primary" href="#tes">Mulai Tes Sekarang</a>
+</div>
+
+<main>
+<!-- ══════════ HERO ══════════ -->
+<section id="beranda" class="hero">
+  <canvas id="fx-stars" aria-hidden="true"></canvas>
+  <i class="orb orb-a" data-depth="0.10" aria-hidden="true"></i>
+  <i class="orb orb-b" data-depth="-0.06" aria-hidden="true"></i>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow rise" style="--d:.05s"><i class="dot-spectrum"></i>16 arketipe · 4 spektrum · 1 dirimu</span>
+      <h1 class="rise" style="--d:.14s">Dirimu, dalam <span class="grad-text">spektrum penuh.</span></h1>
+      <p class="lead rise" style="--d:.24s">PRISMA memetakan caramu mengisi energi, memandang dunia, mengambil keputusan, dan menjalani hari — lalu meraciknya menjadi satu dari 16 arketipe, lengkap dengan tanda tangan warnamu sendiri.</p>
+      <div class="hero-cta rise" style="--d:.34s">
+        <a class="btn btn-primary btn-lg" href="#tes" data-icon="play" data-size="16">Mulai Tes — gratis</a>
+        <button type="button" class="btn btn-ghost btn-lg" id="btn-demo" data-icon="spark" data-size="16">Lihat contoh hasil</button>
+      </div>
+      <div class="stats rise" style="--d:.46s">
+        <div class="stat" style="--h:262"><b>16</b><span>Arketipe</span></div>
+        <div class="stat" style="--h:330"><b>40</b><span>Pertanyaan</span></div>
+        <div class="stat" style="--h:205"><b>±4</b><span>Menit</span></div>
+        <div class="stat" style="--h:152"><b>100%</b><span>Privat & lokal</span></div>
+      </div>
+    </div>
+    <div class="stage rise" style="--d:.3s" aria-hidden="true">
+      <i class="ring ring-1"></i><i class="ring ring-2"></i>
+      <svg class="prism" viewBox="0 0 440 440">
+        <defs>
+          <linearGradient id="pglass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(139,92,246,.34)"/><stop offset=".5" stop-color="rgba(56,189,248,.10)"/><stop offset="1" stop-color="rgba(255,61,139,.22)"/></linearGradient>
+          <linearGradient id="pbeam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(255,255,255,0)"/><stop offset=".7" stop-color="rgba(255,255,255,.85)"/><stop offset="1" stop-color="#fff"/></linearGradient>
+          <linearGradient id="pb0" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff5a5a"/><stop offset="1" stop-color="#ff5a5a" stop-opacity="0"/></linearGradient>
+          <linearGradient id="pb1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff9f43"/><stop offset="1" stop-color="#ff9f43" stop-opacity="0"/></linearGradient>
+          <linearGradient id="pb2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#ffd166" stop-opacity="0"/></linearGradient>
+          <linearGradient id="pb3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a3e635"/><stop offset="1" stop-color="#a3e635" stop-opacity="0"/></linearGradient>
+          <linearGradient id="pb4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></linearGradient>
+          <linearGradient id="pb5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4cc9f0"/><stop offset="1" stop-color="#4cc9f0" stop-opacity="0"/></linearGradient>
+          <linearGradient id="pb6" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient>
+          <filter id="pglow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <line class="beam-in" x1="6" y1="206" x2="170" y2="220" stroke="url(#pbeam)" stroke-width="3.5" filter="url(#pglow)"/>
+        <path d="M220 88 342 332H98Z" fill="url(#pglass)" stroke="rgba(242,237,255,.6)" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M220 88 256 164" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+        <line x1="170" y1="220" x2="272" y2="258" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+        <g filter="url(#pglow)">
+          <line class="beam" style="--bd:0s"    x1="272" y1="258" x2="434" y2="136" stroke="url(#pb0)" stroke-width="3.2"/>
+          <line class="beam" style="--bd:.12s" x1="272" y1="258" x2="434" y2="172" stroke="url(#pb1)" stroke-width="3.2"/>
+          <line class="beam" style="--bd:.24s" x1="272" y1="258" x2="434" y2="208" stroke="url(#pb2)" stroke-width="3.2"/>
+          <line class="beam" style="--bd:.36s" x1="272" y1="258" x2="434" y2="244" stroke="url(#pb3)" stroke-width="3.2"/>
+          <line class="beam" style="--bd:.48s" x1="272" y1="258" x2="434" y2="280" stroke="url(#pb4)" stroke-width="3.2"/>
+          <line class="beam" style="--bd:.6s"  x1="272" y1="258" x2="434" y2="316" stroke="url(#pb5)" stroke-width="3.2"/>
+          <line class="beam" style="--bd:.72s" x1="272" y1="258" x2="434" y2="352" stroke="url(#pb6)" stroke-width="3.2"/>
+        </g>
+        <circle cx="170" cy="220" r="4" fill="#fff" filter="url(#pglow)"/>
+        <circle cx="272" cy="258" r="4" fill="#fff" filter="url(#pglow)"/>
+      </svg>
+      <span class="pchip" style="--h:38;  top:6%;  left:10%; --fd:0s">E</span>
+      <span class="pchip" style="--h:228; top:12%; right:6%; --fd:.7s">I</span>
+      <span class="pchip" style="--h:288; top:40%; left:0;   --fd:1.4s">N</span>
+      <span class="pchip" style="--h:168; bottom:26%; left:4%; --fd:2.1s">S</span>
+      <span class="pchip" style="--h:205; top:0;   left:46%; --fd:2.8s">T</span>
+      <span class="pchip" style="--h:330; bottom:6%; left:22%; --fd:3.5s">F</span>
+      <span class="pchip" style="--h:152; bottom:2%; right:22%; --fd:4.2s">J</span>
+      <span class="pchip" style="--h:24;  top:46%; right:0;  --fd:4.9s">P</span>
+      <p class="stage-cap">satu cahaya · enam belas spektrum</p>
+    </div>
+  </div>
+  <span class="scrollcue" aria-hidden="true">gulir</span>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee" aria-hidden="true"><div class="mq-track" id="mq-track"></div></div>
+
+<!-- ══════════ LANGKAH ══════════ -->
+<section class="steps">
+  <div class="container steps-grid">
+    <article class="panel step reveal" style="--h:262;--d:0s">
+      <span class="step-num">01</span>
+      <span class="step-ic" data-icon="chat" data-size="22"></span>
+      <h3>Jawab apa adanya</h3>
+      <p>Pilih panjang tes — 12, 24, atau 40 pertanyaan. Tidak ada jawaban benar atau salah; yang jujur yang paling akurat.</p>
+    </article>
+    <article class="panel step reveal" style="--h:330;--d:.1s">
+      <span class="step-num">02</span>
+      <span class="step-ic" data-icon="bars" data-size="22"></span>
+      <h3>Spektrum dihitung</h3>
+      <p>Jawabanmu ditimbang di empat sumbu: energi, informasi, keputusan, dan ritme — semuanya diproses di perangkatmu.</p>
+    </article>
+    <article class="panel step reveal" style="--h:168;--d:.2s">
+      <span class="step-num">03</span>
+      <span class="step-ic" data-icon="spark" data-size="22"></span>
+      <h3>Arketipe ditemukan</h3>
+      <p>Satu dari 16 arketipe muncul dengan kartu hasil yang bisa diunduh, pola warna unik, dan jalur yang cocok untukmu.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ TES ══════════ -->
+<section id="tes" class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><i class="dot-spectrum"></i>01 · Ruang Tes</span>
+      <h2>Seberapa kenal kamu dengan dirimu?</h2>
+      <p class="lead">Pilih panjang tes, lalu jawab dengan jujur. Kamu bisa kembali dan mengubah jawaban sebelum hasil dihitung.</p>
+    </div>
+
+    <div class="tes-shell panel reveal" style="--d:.1s">
+      <!-- Panel mulai -->
+      <div id="start-panel">
+        <div class="len-grid" id="len-group" role="radiogroup" aria-label="Panjang tes">
+          <button type="button" class="len-card" data-len="12" role="radio" aria-checked="false">
+            <span class="len-check" data-icon="check" data-size="14"></span>
+            <b>Kilat</b><span class="len-count">12 pertanyaan</span><span class="len-time">± 2 menit</span>
+            <p>Cek cepat — cukup untuk membaca arah besarmu.</p>
+          </button>
+          <button type="button" class="len-card sel" data-len="24" role="radio" aria-checked="true">
+            <span class="len-badge">Populer</span>
+            <span class="len-check" data-icon="check" data-size="14"></span>
+            <b>Standar</b><span class="len-count">24 pertanyaan</span><span class="len-time">± 4 menit</span>
+            <p>Seimbang — rekomendasi untuk hasil yang meyakinkan.</p>
+          </button>
+          <button type="button" class="len-card" data-len="40" role="radio" aria-checked="false">
+            <span class="len-check" data-icon="check" data-size="14"></span>
+            <b>Mendalam</b><span class="len-count">40 pertanyaan</span><span class="len-time">± 7 menit</span>
+            <p>Resolusi penuh untuk spektrum yang paling detail.</p>
+          </button>
+        </div>
+        <div class="start-foot">
+          <span class="privacy" data-icon="lock" data-size="14">Tanpa akun. Jawabanmu tidak pernah meninggalkan perangkat ini.</span>
+          <button type="button" class="btn btn-primary btn-lg" id="btn-start" data-icon="arrow" data-size="17"><span id="start-label">Mulai · 24 pertanyaan</span></button>
+        </div>
+      </div>
+
+      <!-- Panel kuis -->
+      <div id="quiz-panel" hidden>
+        <div class="q-top">
+          <button type="button" class="btn btn-ghost btn-sm" id="btn-back" data-icon="back" data-size="15">Kembali</button>
+          <span class="q-counter">Pertanyaan <b id="q-count">1</b>/<span id="q-total">24</span> · <span id="q-pct">0%</span></span>
+          <button type="button" class="btn-text" id="btn-quit">Akhiri</button>
+        </div>
+        <div class="q-track" aria-hidden="true"><i id="q-fill"></i></div>
+        <div class="q-body" id="q-body">
+          <h3 class="q-text" id="q-text" aria-live="polite"></h3>
+          <div class="opts" id="q-opts" role="radiogroup" aria-label="Skala persetujuan">
+            <button type="button" class="opt" data-v="-2" role="radio" aria-checked="false" aria-label="Sangat tidak setuju" title="Sangat tidak setuju (1)"></button>
+            <button type="button" class="opt" data-v="-1" role="radio" aria-checked="false" aria-label="Tidak setuju" title="Tidak setuju (2)"></button>
+            <button type="button" class="opt" data-v="0"  role="radio" aria-checked="false" aria-label="Netral" title="Netral (3)"></button>
+            <button type="button" class="opt" data-v="1"  role="radio" aria-checked="false" aria-label="Setuju" title="Setuju (4)"></button>
+            <button type="button" class="opt" data-v="2"  role="radio" aria-checked="false" aria-label="Sangat setuju" title="Sangat setuju (5)"></button>
+          </div>
+          <div class="opt-labels" aria-hidden="true"><span>Sangat tidak setuju</span><span>Netral</span><span>Sangat setuju</span></div>
+        </div>
+        <p class="q-hint"><kbd>1</kbd>–<kbd>5</kbd> untuk menjawab · <kbd>⌫</kbd> kembali</p>
+      </div>
+
+      <!-- Overlay analisis -->
+      <div id="analyzing" hidden>
+        <svg class="ana-prism" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="lgC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff3d8b"/></linearGradient></defs>
+          <path d="M24 7 42 39H6Z" fill="none" stroke="url(#lgC)" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M24 18 33 34H15Z" fill="url(#lgC)" opacity=".5"/>
+        </svg>
+        <p class="ana-status" id="ana-status">Membaca pola jawabanmu…</p>
+        <div class="ana-bars" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HASIL ══════════ -->
+<section id="hasil" class="sec hasil" hidden>
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="dot-spectrum"></i>02 · Hasilmu</span>
+      <div class="res-headline">
+        <h2>Inilah spektrummu.</h2>
+        <span class="chip tone-ok" id="res-badge">Hasil baru</span>
+      </div>
+      <p class="res-note" id="res-note"></p>
+    </div>
+    <div class="res-grid">
+      <article class="panel res-card">
+        <div class="res-code" id="res-code" aria-hidden="true"></div>
+        <h3 id="res-name" tabindex="-1"></h3>
+        <div class="chips" id="res-chips"></div>
+        <p class="res-tag" id="res-tag"></p>
+        <p class="res-desc" id="res-desc"></p>
+        <div class="res-cols">
+          <div><h4 class="mini-h">Kekuatan</h4><ul class="ticks" id="res-str"></ul></div>
+          <div><h4 class="mini-h">Ruang tumbuh</h4><ul class="ticks grow" id="res-growth"></ul></div>
+        </div>
+        <h4 class="mini-h">Jalur yang cocok</h4>
+        <div class="chips" id="res-careers"></div>
+        <h4 class="mini-h">Sejiwa dengan</h4>
+        <div class="match-row" id="res-match"></div>
+      </article>
+      <aside class="res-side">
+        <div class="panel side-panel">
+          <h4 class="mini-h">Spektrummu</h4>
+          <div id="res-bars"></div>
+          <p class="fine">Angka menunjukkan kecenderungan, bukan batas. Dekat 50% berarti kamu lentur di sumbu itu.</p>
+        </div>
+        <div class="panel side-panel">
+          <h4 class="mini-h">Tanda tangan spektrum</h4>
+          <canvas id="fx-ribbon" aria-label="Pola pita warna unik dari kombinasi jawabanmu"></canvas>
+          <p class="fine">Pola ini lahir dari kombinasi jawabanmu — tidak ada dua yang persis sama.</p>
+        </div>
+        <div class="res-actions">
+          <button type="button" class="btn btn-primary" id="btn-download" data-icon="download" data-size="16">Unduh Kartu</button>
+          <button type="button" class="btn btn-ghost" id="btn-copy" data-icon="copy" data-size="16">Salin Ringkasan</button>
+          <button type="button" class="btn btn-ghost" id="btn-retake" data-icon="refresh" data-size="16">Ulangi Tes</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ARKETIPE ══════════ -->
+<section id="arketipe" class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><i class="dot-spectrum"></i>03 · Atlas Arketipe</span>
+      <h2>Enam belas cara menjadi manusia.</h2>
+      <p class="lead">Setiap arketipe adalah pola energi, informasi, keputusan, dan ritme. Telusuri semuanya — atau cari yang terasa seperti kamu. <span id="gal-count" class="count-tag">16 arketipe</span></p>
+    </div>
+    <div class="gal-controls reveal" style="--d:.08s">
+      <label class="search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="gal-search" placeholder="Cari kode, nama, atau kata kunci…" aria-label="Cari arketipe">
+      </label>
+      <div class="filters" id="gal-filters" role="group" aria-label="Filter temperamen">
+        <button type="button" class="fchip active" data-temp="all">Semua</button>
+        <button type="button" class="fchip" data-temp="udara">Udara · NT</button>
+        <button type="button" class="fchip" data-temp="api">Api · NF</button>
+        <button type="button" class="fchip" data-temp="tanah">Tanah · SJ</button>
+        <button type="button" class="fchip" data-temp="air">Air · SP</button>
+      </div>
+    </div>
+    <div class="gal-grid" id="gal-grid"></div>
+    <div class="panel gal-empty" id="gal-empty" hidden>
+      <p>Tidak ada arketipe yang cocok dengan pencarianmu.</p>
+      <button type="button" class="btn btn-ghost btn-sm" id="gal-reset">Reset pencarian</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ RIWAYAT ══════════ -->
+<section id="riwayat" class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><i class="dot-spectrum"></i>04 · Riwayat</span>
+      <div class="res-headline">
+        <h2>Jejak spektrummu.</h2>
+        <button type="button" class="btn btn-ghost btn-sm danger-ghost" id="btn-clear" data-icon="trash" data-size="14" hidden>Bersihkan</button>
+      </div>
+      <p class="lead">Hasil tersimpan hanya di perangkat ini. Lihat kembali, bandingkan dari waktu ke waktu, atau hapus kapan pun. <span id="hist-count" class="count-tag">0 hasil</span></p>
+    </div>
+    <ul class="hist-list reveal" id="hist-list" style="--d:.08s"></ul>
+    <div class="panel hist-empty reveal" id="hist-empty" style="--d:.08s">
+      <span class="empty-ic" data-icon="compass" data-size="38"></span>
+      <h3>Belum ada jejak di sini</h3>
+      <p>Ambil tes pertamamu — hasilnya akan tersimpan otomatis, hanya di perangkat ini.</p>
+      <div class="empty-cta">
+        <a class="btn btn-primary" href="#tes" data-icon="play" data-size="15">Mulai Tes</a>
+        <button type="button" class="btn btn-ghost" id="btn-demo2" data-icon="spark" data-size="15">Lihat contoh hasil</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="#beranda">
+        <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="lgB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs>
+          <path d="M24 7 42 39H6Z" fill="url(#lgB)" opacity=".92"/>
+          <path d="M2 26h13" stroke="#f2edff" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M31 24l15-7" stroke="#ff3d8b" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M32 28h14" stroke="#ffb020" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M31 32l15 7" stroke="#2dd4bf" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>PRISMA</span>
+      </a>
+      <p class="foot-tag">Peta kepribadian yang playful, privat, dan dibuat dengan tiga bahan pokok web.</p>
+    </div>
+    <div>
+      <h5>Jelajahi</h5>
+      <a href="#tes">Ruang Tes</a>
+      <a href="#arketipe">Atlas Arketipe</a>
+      <a href="#riwayat">Riwayat Hasil</a>
+    </div>
+    <div>
+      <h5>Catatan</h5>
+      <p class="foot-note">Semua perhitungan berjalan di browsermu — tanpa server, tanpa akun, tanpa pelacak. PRISMA adalah cermin refleksi diri yang playful, bukan instrumen diagnosis psikologis profesional.</p>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <span>© 2026 PRISMA · 16 arketipe</span>
+    <span>HTML · CSS · JavaScript — tanpa framework</span>
+  </div>
+</footer>
+
+<!-- ══════════ DRAWER & TOAST ══════════ -->
+<div class="drawer-scrim" id="drawer-scrim" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+  <div class="d-head">
+    <span class="d-label">Detail Arketipe</span>
+    <button type="button" class="icon-btn" id="drawer-close" aria-label="Tutup detail">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="d-body" id="drawer-body"></div>
+</aside>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<noscript><div style="position:fixed;inset:0;background:#0a0714;color:#f2edff;display:grid;place-items:center;z-index:999;padding:24px;text-align:center;font-family:sans-serif">PRISMA membutuhkan JavaScript untuk menghitung spektrummu. Aktifkan JavaScript lalu muat ulang halaman.</div></noscript>
+<script src="app.js"></script>
+</body>
+</html>
